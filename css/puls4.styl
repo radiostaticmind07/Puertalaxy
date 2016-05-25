@@ -1,6 +1,22 @@
 gris_obscuro = #444
 azul = #22BCE0
+naranja = #DD4F24
+gris_texto = #7a7a7a
 
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts icomoon.eot?dsi9hj');
+    src:    url('../fonts/icomoon.eot?dsi9hj#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?dsi9hj') format('truetype'),
+        url('../fonts/icomoon.woff?dsi9hj') format('woff'),
+        url('../fonts/icomoon.svg?dsi9hj#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a
+	color naranja
+	
 body 
 	background #E8E8E8
 	color gris_obscuro
@@ -11,23 +27,246 @@ header
 	background gris_obscuro
 	color white 
 	padding 0.5em
+	position relative
+	overflow hidden
+	box-shadow 0 5px 0 rgba(0,0,0,0.2)
+	z-index 1
 	
 	.logo
 		width 60px
 		border-right 1px solid azul
+		float left
 		
 		img
 			width 52px
 			
 	.titular
-		margin 0 80px
+		margin 0 80px 0 70px
+		
 		.titulo
 			font-size 18px
 			font-weight normal
 			margin 0 
 			padding 0
+		
+		.filtro
+			text-decoration none
+			color azul 
+			font-weight bold
+			font-style italic
+			font-size 14px
 			
-.left
-	float left
-.right
-	float right
+		.publicar
+			background naranja
+			color white
+			float right
+			padding 0.2em 0.5em
+			margin -5px 1em 0 0
+			text-decoration none
+			font-style italic
+			text-shadow 2px 2px 0px black
+			
+			&:before
+				content "\e908"
+				font-family icomoon
+				display inline-block
+				margin 2px 3px 0 0
+	
+	.usuario
+		position absolute 
+		top 10px
+		right 10px
+		
+		.avatar
+			img
+				width 50px
+				border-radius 50%
+				margin 0 1.5em 0 0
+				position relative
+				z-index 2
+				
+		.flechita
+			display block
+			background naranja
+			color white
+			text-align right
+			position absolute
+			width 50%
+			top 15px
+			right 0
+			padding 3px
+			
+			&:after
+				content "\ea10"
+				font-family icomoon
+				display inline-block
+				text-shadow 2px 2px 0 black
+nav
+	background azul
+	border-left 15px solid white
+	position relative
+	
+	&:before
+		content ""
+		border-left 7px solid white
+		border-bottom 20px solid transparent 
+		border-top 20px solid transparent
+		position absolute
+		top 0
+		left 0
+
+	.menu
+		margin 0
+		overflow-x auto
+		height 40px
+		padding 0
+		line-height 40px
+		white-space nowrap
+		
+		li
+			display inline-block
+			
+			a
+				color white
+				display block
+				text-decoration none 
+				padding 0 0.2em
+				margin 0 0.5em
+				
+.posts 
+	padding 0.5em
+	
+	.post 
+		background white
+		color gris_texto
+		box-shadow 2px 2px 10px rgba(black, 0.5)
+		border-radius 0 0 0.5em 0.5em
+		margin-bottom 1em
+		
+		.accion
+			border-top 3px solid azul
+			padding 0.5em
+			overflow hidden
+			
+			.datos
+				float right
+				
+				.comentarios
+					background gris_texto
+					color white
+					padding 2px 5px
+					margin 0 1em 0 0
+					text-decoration none
+					border-radius 3px
+						
+				.estrellita
+					text-decoration none
+					
+					&:after
+						font-family icomoon
+						color #E0D561
+						content "\e9d9"
+						
+
+			.votos
+				float left
+
+				.down 
+				.up
+					text-decoration none
+									
+				.down
+					color red
+					&:before
+						content "\ea10"
+						font-size 1em
+						font-family icomoon
+						
+					
+				.up
+					color green
+					&:before
+						content "\ea0f"
+						font-size 1em
+						font-family icomoon
+
+		.descripcion
+			color gris_texto
+			
+			.imagen
+				float left
+				
+				img
+					height 160px
+					width 120px
+					vertical-align top
+			.detalles
+				height 160px
+				margin-left 130px
+				
+				.titulo
+					font-size 18px
+					color gris_obscuro
+					font-style italic
+					margin 0
+					padding 0.5em 0.5em 0 0
+					
+				.autor
+					margin 0.5em 0 2em 0
+					
+				.tag
+					background azul
+					color white
+					padding 0.2em 0.5em
+					border-radius 0.5em
+					text-decoration none
+					
+				.fecha
+					float right
+					margin 0 1em 0 0
+					
+footer
+	background naranja
+	color rgba(white, 0.5)
+	text-align center
+	width 100%
+	padding 1em
+	
+	h3
+		font-size 14px
+		font-weight normal
+		
+		strong 
+			display block
+			
+		.mejor
+			font-size 12px
+		
+			&:before
+			&:after
+				content " - "
+				
+@media screen and (min-width 768px)
+		
+	header
+		.titular
+			.publicar
+				position relative
+				padding-left 3em
+				
+
+				&:before
+					position absolute
+					left 0
+					top -10px
+					font-size 2.5em		
+					
+
+	.posts
+		.post
+			display inline-block
+			width 48%
+			vertical-align top 
+			&:nth-child(odd)
+				margin-right 2%
+				
